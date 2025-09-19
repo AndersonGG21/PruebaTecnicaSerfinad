@@ -54,7 +54,6 @@ public class ProductManager {
     // Función que filtre productos disponibles (stock > 0) y calcule el valor total
 
     /**
-     * Filtra y muestra productos que tienen stock disponible (stock >= 1).
      * 
      * Este método toma una lista de productos, filtra aquellos sin stock,
      * e imprime los detalles de cada producto disponible en la consola incluyendo
@@ -68,7 +67,6 @@ public class ProductManager {
         
         double totalValue = 0;
         
-        // Encabezado de la tabla
         System.out.println("┌─────┬─────────────────┬─────────┬─────────────┬───────┬─────────────┐");
         System.out.println("│ ID  │ Nombre          │ Precio  │ Categoría   │ Stock │ Valor Total │");
         System.out.println("├─────┼─────────────────┼─────────┼─────────────┼───────┼─────────────┤");
@@ -93,7 +91,6 @@ public class ProductManager {
 
     //Función que ordene productos por precio (menor a mayor) y valide que todos los precios sean positivos
     /**
-     * Ordena y muestra los productos que tienen stock disponible.
      * 
      * Este método filtra los productos que tienen stock mayor a 0, los ordena
      * por precio de forma ascendente y luego imprime sus detalles en la consola.
@@ -106,7 +103,6 @@ public class ProductManager {
         .filter(p -> p.getStock() > 0)
         .sorted(Comparator.comparing(Product::getPrice)).toList();
 
-        // Encabezado de la tabla
         System.out.println("┌─────┬─────────────────┬─────────┬─────────────┬───────┐");
         System.out.println("│ ID  │ Nombre          │ Precio  │ Categoría   │ Stock │");
         System.out.println("├─────┼─────────────────┼─────────┼─────────────┼───────┤");
@@ -127,7 +123,6 @@ public class ProductManager {
 
     //Función que encuentre el producto más caro de cada categoría
     /**
-     * Encuentra y muestra el producto más caro de cada categoría.
      * 
      * Este método agrupa los productos por su categoría e identifica el producto con el precio más alto
      * dentro de cada categoría. Luego imprime información detallada sobre cada producto más caro
@@ -148,7 +143,6 @@ public class ProductManager {
                 .collect(Collectors.groupingBy(Product::getCategory,
                         Collectors.maxBy(Comparator.comparing(Product::getPrice))));
 
-        // Encabezado de la tabla
         System.out.println("┌─────────────┬─────┬─────────────────┬─────────┬───────┐");
         System.out.println("│ Categoría   │ ID  │ Nombre          │ Precio  │ Stock │");
         System.out.println("├─────────────┼─────┼─────────────────┼─────────┼───────┤");
